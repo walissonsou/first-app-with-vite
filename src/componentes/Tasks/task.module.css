@@ -1,0 +1,42 @@
+.tasks {
+  width: 100%;
+  max-width: 46rem;
+  margin: 0 auto; /* sem margem vertical e margem automatica horizontal, centralizando o bloco na tela */
+  margin-top: 5.6rem;
+  padding: 0 1rem;
+}
+
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
+  margin-top: 1.5rem/ 
+  
+}
+
+.header div {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+}
+
+.header p
+ {
+  font-size: 0.8rem;
+  color: var(--blue-dark);
+  font-weight: bold;
+}
+.header .textRoxo{
+  font-size: 0.8rem;
+  color: var(--purple);
+  font-weight: bold;
+}
+.header span{
+  background: var(--gray-300);
+  font-size: 1rem;
+  color: var(--gray-200);
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-weight: bold;
+}
