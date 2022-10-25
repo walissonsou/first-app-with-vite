@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
 :root {
@@ -23,6 +24,8 @@ body{
   -webkit-font-smoothing: antialiased;
   /* o body vai ocupar toda altura da tela */
   min-height: 100vh; 
+  background: var(--gray-700);
+  color: var(--gray-200);
   
 }
 button{
