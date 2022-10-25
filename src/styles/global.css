@@ -24,7 +24,7 @@ body{
   -webkit-font-smoothing: antialiased;
   /* o body vai ocupar toda altura da tela */
   min-height: 100vh; 
-  background: var(--gray-700);
+  background: var(--gray-500);
   color: var(--gray-200);
   
 }

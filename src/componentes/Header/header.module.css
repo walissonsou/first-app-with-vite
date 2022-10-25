@@ -1,8 +1,44 @@
 .header {
   background: var(--gray-700);
-  display: flex;
+  display: flex; /* o padrao eh block */
   align-items: center;
   justify-content: center;
-  height: 12.5rem;
-  position: relative
+  height: 12.5rem; /* altura */
+  position: relative 
+}
+.newTaskForm {
+  position: absolute; /* fica solto igual arroz */
+  bottom: calc(-3.75rem/2);
+  height: 3.375rem; /* altura do form */
+  width: 100%; /*largura do form */ 
+  max-width: 46rem; /* */
+  display: flex;  /* o padrao eh block */
+  gap: 0.5rem;
+  padding: 0 1rem;
+}
+
+.newTaskForm input {
+  height: 100%;
+  flex: 1; /* vai ocupar todo o espaço do max-width que defini acima */
+  color: var(--gray-700);
+  background: var(--gray-300);
+  border: 1px solid var(--gray-500);
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  font-size: 1rem;
+}
+.newTaskForm input::placeholder {
+  color: var(--gray-300)
+}
+.newTaskForm button{
+  height: 100%;
+  gap: 0.4rem;
+  display: flex;
+  align-items: center; 
+  color: white;
+  font-weight: bold;
+  background: var( --blue-dark);
+  border-radius: 0.5rem;
+  border: 1px solid var(--gray-500);
+  padding: 0 1rem; /* espaço ao redor do conteudo, dentro de qualquer borda definida. */
 }
