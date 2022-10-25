@@ -1,1 +1,1 @@
-# first-app-with-vite
+<img src="./src/assets/previa.png" alt="Getting started" />
