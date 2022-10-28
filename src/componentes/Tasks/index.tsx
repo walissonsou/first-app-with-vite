@@ -5,7 +5,9 @@ import styles from './task.module.css'
 interface Props {
   tasks: ITask[];
 }
-export function Tasks({ tasks}: Props) {
+export function Tasks({ tasks }: Props) {
+  const tasksQuantidade = tasks.length
+  const tasksCompletas = tasks.filter((task) => task.isCompleted).length
   return (
     <section className={styles.tasks}>
       <header className={styles.header}>
@@ -13,19 +15,19 @@ export function Tasks({ tasks}: Props) {
           <p>
             Tarefas criadas
           </p>
-          <span> 10</span>
+          <span> {tasksQuantidade}</span>
         </div>
         <div>
           <p className={styles.textRoxo}> Concluídas
           </p>
-          <span> 2 de 10 </span>
+          <span> {tasksCompletas} de {tasksQuantidade}</span>
         </div>
       </header>
       <div className={styles.list}>
         {tasks.map((task) => (
-          <Task key={task.id} task={task}/>
+          <Task key={task.id} task={task} />
         ))}
-            
+
       </div>
     </section>
   )

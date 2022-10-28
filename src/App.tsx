@@ -9,17 +9,27 @@ export interface ITask {
 }
 
 function App() {
-  const [ tasks, setTasks] = useState<ITask[]>([
+  const [tasks, setTasks] = useState<ITask[]>([
     {
       id: 'teste',
       title: 'teste',
-      isCompleted: true;
+      isCompleted: true,
+    },
+    {
+      id: 'teste',
+      title: 'teste',
+      isCompleted: false,
+    },
+    {
+      id: 'teste',
+      title: 'teste',
+      isCompleted: true,
     }
   ])
   return (
     <>
       <Header />
-      <Tasks tasks={tasks}/>
+      <Tasks tasks={tasks} />
     </>
   )
 }
