@@ -28,8 +28,8 @@ export function Tasks() {
         {(tasks ?? []).map((tasks) => (
           <Task key={tasks.id} task={tasks} />
         ))}
-
       </div>
     </section>
+    
   )
 }
