@@ -1,13 +1,14 @@
-import { ITask } from '../../App';
+import { useContext } from 'react';
+import { TodoContext } from '../Context/TodoProvider';
 import Task from '../Task/index'
 import styles from './task.module.css'
 
-interface Props {
-  tasks: ITask[];
-}
-export function Tasks({ tasks }: Props) {
-  const tasksQuantidade = tasks.length
-  const tasksCompletas = tasks.filter((task) => task.isCompleted).length
+
+export function Tasks() {
+  const [task, setTasks] = useContext(TodoContext)
+
+  const tasksQuantidade = task.length
+  const tasksCompletas = task.filter((task) => task.isCompleted).length
   return (
     <section className={styles.tasks}>
       <header className={styles.header}>
@@ -24,8 +25,8 @@ export function Tasks({ tasks }: Props) {
         </div>
       </header>
       <div className={styles.list}>
-        {tasks.map((task) => (
-          <Task key={task.id} task={task} />
+        {task.map((tasks) => (
+          <Task key={tasks.id} task={tasks} />
         ))}
 
       </div>

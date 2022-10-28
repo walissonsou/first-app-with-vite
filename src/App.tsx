@@ -1,35 +1,15 @@
 import { useState } from 'react';
+import { TodoProvider } from './componentes/Context/TodoProvider';
 import { Header } from './componentes/Header/index'
 import { Tasks } from './componentes/Tasks'
 
-export interface ITask {
-  id: string;
-  title: string;
-  isCompleted: boolean
-}
-
-function App() {
-  const [tasks, setTasks] = useState<ITask[]>([
-    {
-      id: 'teste',
-      title: 'teste',
-      isCompleted: true,
-    },
-    {
-      id: 'teste',
-      title: 'teste',
-      isCompleted: false,
-    },
-    {
-      id: 'teste',
-      title: 'teste',
-      isCompleted: true,
-    }
-  ])
+function App() {  
   return (
     <>
+    <TodoProvider>
       <Header />
-      <Tasks tasks={tasks} />
+      <Tasks />
+    </TodoProvider>
     </>
   )
 }

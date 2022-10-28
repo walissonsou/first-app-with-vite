@@ -1,18 +1,45 @@
-import { createContext, useState } from "react"
+import { createContext, ReactNode, useState } from "react"
+import { ITask, TasksContextType } from "./types";
 
-export interface ITask {
-  id: string;
-  title: string;
-  isCompleted: boolean
-}
 
-const TodoContext = createContext({} as any)
 
-export const TodoProvider = ({children}: any) => {
-  const [ tasks, setTasks] = useState<ITask[]>([])
+export const TodoContext = createContext<TasksContextType | null>(null);
+
+export const TodoProvider = ({children}: {children: ReactNode }) => {
+  const [tasks, setTasks] = useState<ITask[]>([
+    {
+      id: Math.random(),
+      title: 'teste',
+      isCompleted: true,
+    },
+    {
+      id: Math.random(),
+      title: 'teste',
+      isCompleted: true,
+    },
+  ]);
+
+  const saveTodo = (task: ITask) => {
+    const newTodo: ITask = {
+      id: task.id,
+      title: task.title,
+      isCompleted: task.isCompleted,      
+    };
+    setTasks([...tasks, newTodo]);
+  };
+
+  const updateTodo = (id: number) => {
+    tasks.filter((task: ITask) => {
+      if (task.id === id) {
+        task.isCompleted = true;
+        setTasks([...tasks]);
+      }
+    });
+  };
+
   return (
-    <TodoContext.Provider value={[tasks, setTasks]}>
-      { children }
+    <TodoContext.Provider value={{tasks, saveTodo,updateTodo }}>
+      {children}
     </TodoContext.Provider>
   )
 }
