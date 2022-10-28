@@ -1,14 +1,22 @@
+import { ITask } from '../../App';
 import trash from '../../assets/trash.svg'
 import styles from './task.module.css'
 
-export default function Task() {
+interface Prop{
+  task: ITask;
+}
+
+export default function Task({task}: Prop) {
   return (
     <div className={styles.container}>
       <button className={styles.checkContainer}>
-        <div />
+
+        <div>
+        {task.isCompleted}
+        </div>
       </button>
       <p>
-        oi oi papai como vc ta falcao te amo tubarao te amo
+        {task.title}
       </p>
       <button className={styles.trash}>
         <img src={trash} />
