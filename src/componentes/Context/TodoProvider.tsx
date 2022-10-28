@@ -3,7 +3,7 @@ import { ITask, TasksContextType } from "./types";
 
 
 
-export const TodoContext = createContext<TasksContextType | null>(null);
+export const TodoContext = createContext({} as TasksContextType);
 
 export const TodoProvider = ({children}: {children: ReactNode }) => {
   const [tasks, setTasks] = useState<ITask[]>([

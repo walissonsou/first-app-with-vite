@@ -5,10 +5,10 @@ import styles from './task.module.css'
 
 
 export function Tasks() {
-  const [task, setTasks] = useContext(TodoContext)
+  const { tasks } = useContext(TodoContext)
 
-  const tasksQuantidade = task.length
-  const tasksCompletas = task.filter((task) => task.isCompleted).length
+  const tasksQuantidade = tasks?.length
+  const tasksCompletas = tasks?.filter((task) => task.isCompleted).length
   return (
     <section className={styles.tasks}>
       <header className={styles.header}>
@@ -25,7 +25,7 @@ export function Tasks() {
         </div>
       </header>
       <div className={styles.list}>
-        {task.map((tasks) => (
+        {(tasks ?? []).map((tasks) => (
           <Task key={tasks.id} task={tasks} />
         ))}
 
