@@ -3,6 +3,7 @@ import trash from '../../assets/trash.svg'
 import { TodoContext } from '../Context/TodoProvider';
 import { ITask } from '../Context/types';
 import styles from './task.module.css'
+import { BsFillCheckCircleFill } from 'react-icons/bs'
 
 interface Prop {
   task: ITask;
@@ -18,13 +19,24 @@ export default function Task({ task }: Prop) {
     setTasks(newTasks);
   };
 
+  function onComplet(taskId: any) {
+    const newTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return {
+          ...task,
+          isCompleted: !task.isCompleted
+        }
+      } return task
+    });
+    setTasks(newTasks);
+  }
+
+
   return (
     <div className={styles.container}>
-      <button className={styles.checkContainer}>
+      <button className={styles.checkContainer} onClick={() => onComplet(task.id)}>
+        {task.isCompleted ? <BsFillCheckCircleFill /> : <div />}
 
-        <div>
-          {task.isCompleted}
-        </div>
       </button>
       <p>
         {task.title}
