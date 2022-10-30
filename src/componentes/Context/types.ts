@@ -5,7 +5,7 @@ export interface ITask {
 }
 
 export type TasksContextType = {
-  tasks?: ITask[];
-  saveTodo: (tasks: ITask[]) => void;  
-  updateTodo: (id: number) => void;
+  tasks: ITask[];
+  setTasks: (tasks: ITask[]) => void; 
+  
 }
