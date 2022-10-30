@@ -5,39 +5,32 @@ import { useContext, ChangeEvent, FormEvent } from 'react';
 import { TodoContext } from '../Context/TodoProvider';
 import { ITask } from '../Context/types';
 
-interface Props{
-  onAddTask: (taskTitle: ITask[]) => void;
- }
 
-export function Header({onAddTask}: Props) {
+export function Header() { 
+
   const { tasks, setTasks } = useContext(TodoContext)
 
-  function handleSaveTodo (event: FormEvent) {
-    event.preventDefault();
-
-    onAddTask(tasks);
-    setTasks("")
-  }
+  function saveTask (task: ITask){
+    const newTask: ITask = {
+      id: task.id,
+      title: task.title,
+      isCompleted: task.isCompleted,
+    };
+    setTasks([...tasks, newTask]);
+  };
   
-  function onChangeTasks(event: 
-    ChangeEvent<HTMLInputElement>) {
-      setTasks(event.target.value)
-  }
-
   return (
     <header className={styles.header}>
       <img src={todoLogo} />
-      <form className={styles.newTaskForm} onSubmit={handleSaveTodo}>
+      <form className={styles.newTaskForm} >
         <input 
-
-        placeholder="Digite aqui"
-        onChange={onChangeTasks} 
-        value={tasks} 
+        placeholder="Digite aqui"       
 
         ></input>
         <button 
           className={styles.Button} 
-          onClick={handleSaveTodo}> 
+          onClick={saveTask}
+          > 
               Criar
             <img src={plus} />
           </button>
