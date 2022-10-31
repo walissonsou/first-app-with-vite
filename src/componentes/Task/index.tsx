@@ -13,13 +13,13 @@ export default function Task({ task }: Prop) {
 
   const { tasks, setTasks } = useContext(TodoContext)
 
-  function DeleteTaskById(taskId: any) {
+  function DeleteTaskById(taskId: number) {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     console.log('Deletado')
     setTasks(newTasks);
   };
 
-  function onComplet(taskId: any) {
+  function onComplet(taskId: number) {
     const newTasks = tasks.map((task) => {
       if (task.id === taskId) {
         return {

@@ -1,7 +1,7 @@
 export interface ITask {
-  id: number;
+  id: string;
   title: string;
-  isCompleted?: boolean
+  isCompleted: boolean;
 }
 
 export type TasksContextType = {
