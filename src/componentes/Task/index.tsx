@@ -13,13 +13,13 @@ export default function Task({ task }: Prop) {
 
   const { tasks, setTasks } = useContext(TodoContext)
 
-  function DeleteTaskById(taskId: number) {
+  function DeleteTaskById(taskId: string) {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     console.log('Deletado')
     setTasks(newTasks);
   };
 
-  function onComplet(taskId: number) {
+  function onComplet(taskId: string) {
     const newTasks = tasks.map((task) => {
       if (task.id === taskId) {
         return {
@@ -30,7 +30,6 @@ export default function Task({ task }: Prop) {
     });
     setTasks(newTasks);
   }
-
 
   return (
     <div className={styles.container}>
